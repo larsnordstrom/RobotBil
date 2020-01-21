@@ -14,6 +14,15 @@ Arduino projekt för elever som läser programmering, elektronik och nätverk p�
         - Adafruit MotorShield v2.3
         - Adafruit TB6612
         - Sparkfun TB6612FNG
+        - L2930DNE
+- Kopplingsbrädor.
+- Kopplingskablar.
+- Komponentetkit
+    - Motstånd, LED, IR, dioder, kondensatorer, tryckknappar etc.
+- Batterier
+    - Ex: LiPo, LiIon, 9v etc
+- Strömförsörjning
+- Multimeter
 
 ## Kom igång
 - Installera Git på din dator.
