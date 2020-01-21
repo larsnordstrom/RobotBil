@@ -4,11 +4,11 @@ Arduino projekt för elever som läser programmering, elektronik och nätverk p�
 
 
 ## Verktyg
-- Arduino IDE.
+- Arduino IDE. 
 - Git.
 - Arduino UNO eller valfritt Arduino kompatibelt kort.
 - ESP01s Wifi kort eller valfritt Arduino kompatibelt Wifi kort.
-- Motordriver kort
+- Motordriver kort.
     - ex: 
         - Arduino MotorShield
         - Adafruit MotorShield v2.3
