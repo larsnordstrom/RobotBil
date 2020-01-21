@@ -15,6 +15,7 @@ Arduino projekt för elever som läser programmering, elektronik och nätverk p�
         - Adafruit TB6612
         - Sparkfun TB6612FNG
         - L2930DNE
+        - DRV8833
 - Kopplingsbrädor.
 - Kopplingskablar.
 - Komponentetkit
