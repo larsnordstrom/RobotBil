@@ -21,7 +21,7 @@ void blinkStatusLed(int del);
 void setup()
 {
   Serial.begin(115200);
-  initPins()
+  initPins();
 }
 
 /**
@@ -29,7 +29,7 @@ void setup()
 */
 void loop()
 {
-  blinkStatusLed(500)
+  blinkStatusLed(500);
 }
 
 /**
