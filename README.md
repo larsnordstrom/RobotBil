@@ -1,5 +1,27 @@
 # RobotBil
-Arduino project
+Arduino projekt för elever som läser programmering, elektronik och nätverk på Jämtlands Gymnasium.
+
+
+
+## Verktyg
+- Arduino IDE.
+- Git.
+- Arduino UNO eller valfritt Arduino kompatibelt kort.
+- ESP01s Wifi kort eller valfritt Arduino kompatibelt Wifi kort.
+- Motordriver kort
+    - ex: 
+        - Arduino MotorShield
+        - Adafruit MotorShield v2.3
+        - Adafruit TB6612
+        - Sparkfun TB6612FNG
+
+## Kom igång
+- Installera Git på din dator.
+- Klicka på "fork" knappen för att kopiera repot till ditt github konto.
+- Klona projektet från din github till din dator.
+- Skapa en ny branch, "develop" lokalt på din dator.
+- Skriv kod i develop branch.
+- Pusha din kod till ditt repo och gör en pull request för att lägga till kod i detta repo.
 
 ## Filer
 
@@ -16,7 +38,7 @@ Används för att definera olika pins mm.
 
 ### secrets.h
 
-Denna fil innehåller lösenord till wifi. Filen ska ej laddas upp på github.
+Denna fil innehåller lösenord till wifi. Filen ska ej laddas upp på github då detta är ett öppen källkod.
 Ni skapar denna fil själva och denna skall innehålla detta:
 
     /*
