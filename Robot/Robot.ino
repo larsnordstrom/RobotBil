@@ -6,7 +6,7 @@
 #include "config.h"
 
 // Inkludera olika bibliotek
-#include "WiFi.h"
+#include "WiFiEsp.h"
 
 /**
  * Här definerar ni funktioner.
@@ -14,6 +14,12 @@
  */
 void initPins();
 void blinkStatusLed(int del);
+void connectToWiFi(void);
+
+#ifndef HAVE_HWSERIAL1
+#include "SoftwareSerial.h"
+SoftwareSerial Serial1(6, 7); // Arduino RX -> Esp01 TXD, Arduino TX -> Esp01 RXD.
+#endif
 
 /**
 * Setup
@@ -21,7 +27,9 @@ void blinkStatusLed(int del);
 void setup()
 {
   Serial.begin(115200);
+  Serial1.begin(9600);
   initPins();
+  connectToWiFi();
 }
 
 /**
@@ -51,4 +59,25 @@ void blinkStatusLed(int del)
   delay(del);
   digitalWrite(STATUS_LED, LOW);
   delay(del);
+}
+
+void connectToWiFi(void)
+{
+  WiFi.init(&Serial1);
+  Serial.print("Connecting to ");
+  Serial.println(SSID_NAME);
+
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    blinkStatusLed(500);
+    Serial.print(".");
+  }
+
+  digitalWrite(STATUS_LED, HIGH);
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.print("http://");
+  Serial.print(WiFi.localIP());
+  Serial.println("/");
 }
