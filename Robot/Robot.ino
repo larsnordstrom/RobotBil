@@ -4,16 +4,18 @@
 // Dessa måste finnas med i projektet.
 #include "secrets.h"
 #include "config.h"
-
 // Inkludera olika bibliotek
-#include "WiFi.h"
+#include "WiFiEsp.h"
+#include <SoftwareSerial.h>
 
 /**
  * Här definerar ni funktioner.
  * Lägg till funktioner och namnge dom logiskt.
  */
+SoftwareSerial Serial1(6, 7);
 void initPins();
 void blinkStatusLed(int del);
+void connectToWiFi(void);
 
 /**
 * Setup
@@ -21,7 +23,10 @@ void blinkStatusLed(int del);
 void setup()
 {
   Serial.begin(115200);
+  Serial1.begin(9600);
+
   initPins();
+  connectToWiFi();
 }
 
 /**
@@ -38,7 +43,7 @@ void loop()
 */
 void initPins()
 {
-  setPinMode(STATUS_LED, OUTPUT);
+  pinMode(STATUS_LED, OUTPUT);
 }
 
 /**
@@ -51,4 +56,29 @@ void blinkStatusLed(int del)
   delay(del);
   digitalWrite(STATUS_LED, LOW);
   delay(del);
+}
+
+/**
+* Denna funktion används för att ansluta till wifi.
+*/
+void connectToWiFi()
+{
+
+  WiFi.init(&Serial1);
+
+  if (WiFi.status() == WL_NO_SHIELD)
+  {
+    Serial.println("WiFi shield not present");
+    while (true)
+      ;
+  }
+
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(SSID_NAME);
+    WiFi.begin(SSID_NAME, SSID_PASSWORD);
+  }
+
+  Serial.println("You're connected to the network");
 }
