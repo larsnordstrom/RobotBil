@@ -6,7 +6,7 @@
 #include "config.h"
 
 // Inkludera olika bibliotek
-#include "WiFi.h"
+#include "WiFiEsp.h"
 
 /**
  * Här definerar ni funktioner.
@@ -14,7 +14,7 @@
  */
 void initPins();
 void blinkStatusLed(int del);
-
+void connectToWiFi(void);
 /**
 * Setup
 */
@@ -22,6 +22,7 @@ void setup()
 {
   Serial.begin(115200);
   initPins();
+  connectToWiFi();
 }
 
 /**
@@ -38,7 +39,7 @@ void loop()
 */
 void initPins()
 {
-  setPinMode(STATUS_LED, OUTPUT);
+  pinMode(STATUS_LED, OUTPUT);
 }
 
 /**
@@ -52,3 +53,15 @@ void blinkStatusLed(int del)
   digitalWrite(STATUS_LED, LOW);
   delay(del);
 }
+
+/**
+* Denna funktion används för att ansluta till wifi.
+*/
+void connectToWiFi(){
+    
+
+
+}
+
+
+
