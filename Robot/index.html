@@ -13,12 +13,54 @@
             padding: 0;
             background-color: #ffff;
         }
+
+        .gameBtn {
+            display: block;
+            position: fixed;
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(116, 116, 116, 22);
+            border-radius: 64px;
+            box-shadow: 1px 1px 3px rgb(0, 0, 0);
+            background-color: silver;
+            color: black;
+        }
+
+        .gameBtn:active {
+            background-color: rgb(17, 17, 17);
+            color: rgb(223, 223, 223);
+        }
+
+        #btnUp {
+            bottom: 84px;
+            left: 10px;
+        }
+
+        #btnDown {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        #btnLeft {
+            right: 84px;
+            bottom: 10px;
+        }
+
+        #btnRight {
+            right: 10px;
+            bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
     <!-- Bilens hemsida, skriv ingen html utanför body taggarna  -->
-
+    <main class="container" id="content">
+        <button class="gameBtn" id="btnUp">Up</button>
+        <button class="gameBtn" id="btnDown">Down</button>
+        <button class="gameBtn" id="btnLeft">Left</button>
+        <button class="gameBtn" id="btnRight">Right</button>
+    </main>
 
     <!-- Skriv ingen html nedanför denna rad.-->
     <!-- Här ska det endast skrivas javascript.-->
