@@ -18,6 +18,43 @@ void blinkStatusLed(int del);
 void connectToWiFi(void);
 
 /**
+ * Skriv och testa html i index.html med live server, kopiera in den koden som fungerar på rätt 
+ * plats nedanför. 
+ */
+char html[] PROGMEM = R"=====(
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RobotBilen</title>
+    <!-- Nedanför mellan style skriver ni css -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bilens hemsida, skriv ingen html utanför body taggarna  -->
+
+
+    <!-- Skriv ingen html nedanför denna rad. -->
+    <!-- Här ska det endast skrivas javascript. -->
+    <script>
+
+    </script>
+</body>
+
+</html>
+)=====";
+
+/**
 * Setup
 */
 void setup()
