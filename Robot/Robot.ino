@@ -16,6 +16,8 @@ SoftwareSerial Serial1(6, 7);
 void initPins();
 void blinkStatusLed(int del);
 void connectToWiFi(void);
+void motorForward(int speed);
+void motorStop(void);
 
 /**
 * Setup
@@ -82,3 +84,14 @@ void connectToWiFi()
 
   Serial.println("You're connected to the network");
 }
+
+void motorForward(int speed){
+
+}
+
+void motorStop(){
+  //
+}
+
+
+
