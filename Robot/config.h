@@ -13,3 +13,5 @@
 #define STATUS_LED 13
 
 // Motor pins
+#define DRV8833_INPUT_1 2
+#define DRV8833_INPUT_2 6
