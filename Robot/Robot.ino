@@ -12,11 +12,11 @@
  * Här definerar ni funktioner.
  * Lägg till funktioner och namnge dom logiskt.
  */
-SoftwareSerial Serial1(6, 7);
+SoftwareSerial Serial1(SOFTSERIAL_RX, SOFTSERIAL_TX);
 void initPins();
 void blinkStatusLed(int del);
 void connectToWiFi(void);
-WiFiEspServer server (8080);
+WiFiEspServer server (SERVER_PORT);
  int status = WL_IDLE_STATUS;
 
 /**
@@ -24,8 +24,8 @@ WiFiEspServer server (8080);
 */
 void setup()
 {
-  Serial.begin(115200);
-  Serial1.begin(9600);
+  Serial.begin(SERIAL_BAUDRATE);
+  Serial1.begin(SOFTSERIAL_BAUDRATE);
 
   initPins();
   connectToWiFi();
