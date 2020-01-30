@@ -16,6 +16,8 @@ SoftwareSerial Serial1(6, 7);
 void initPins();
 void blinkStatusLed(int del);
 void connectToWiFi(void);
+WiFiEspServer server (8080);
+ int status = WL_IDLE_STATUS;
 
 /**
 * Setup
@@ -34,6 +36,53 @@ void setup()
 */
 void loop()
 {
+    WiFiEspClient client = server.available();
+
+  if (client) {
+    Serial.println("New client");
+
+    boolean currentLineIsBlank = true;
+
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+
+
+        if (c == '\n' && currentLineIsBlank) {
+          Serial.println("Sending response");
+
+          client.print(
+            "HTTP/1.1 200 OK\r\n"
+            "Content-Type: text/html\r\n"
+            "Connection: close\r\n"
+            "\r\n");
+          client.print("<!DOCTYPE HTML>\r\n");
+          client.print("<html>\r\n");
+          client.print("<head>\r\n");
+          client.print("<title>My Arduino</title>\r\n");
+          client.print("</head>\r\n");
+          client.print("<body>\r\n");
+          client.print("<h1>Hello World!</h1>\r\n");
+          client.print("<p>We're online!</p>\r\n");
+          client.print("</body>\r\n");
+          client.print("</html>\r\n");
+          break;
+        }
+        if (c == '\n') {
+          currentLineIsBlank = true;
+        }
+        else if (c != '\r') {
+          currentLineIsBlank = false;
+        }
+      }
+    }
+
+    delay(10);
+
+    client.stop();
+    Serial.println("Client disconnected");
+  }
   blinkStatusLed(500);
 }
 
@@ -81,4 +130,20 @@ void connectToWiFi()
   }
 
   Serial.println("You're connected to the network");
+  printWifiStatus();
+  server.begin();
+}
+
+
+
+
+void printWifiStatus() {
+
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
+
+  IPAddress ip = WiFi.localIP();
+  Serial.print("IP Address: ");
+  Serial.println(ip);
+
 }
