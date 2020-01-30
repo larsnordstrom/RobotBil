@@ -3,6 +3,8 @@
 * 
 * Denna fil används för att definera olika pins mm.
 */
+// Serial
+#define SERIAL_BAUDRATE 115200
 
 // Oled
 #define OLED_SCREEN_WIDTH 128
@@ -12,4 +14,9 @@
 // Led pin
 #define STATUS_LED 13
 
+// Wifi
+#define SOFTSERIAL_RX 6
+#define SOFTSERIAL_RX 7
+#define SOFTSERIAL_BAUDRATE 9600
+#define SERVER_PORT 8080
 // Motor pins
