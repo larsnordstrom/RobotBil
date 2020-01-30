@@ -46,6 +46,8 @@ void loop()
 void initPins()
 {
   pinMode(STATUS_LED, OUTPUT);
+  pinMode(MOTOR_LEFT, OUTPUT);
+  pinMode(MOTOR_RIGHT, OUTPUT);
 }
 
 /**
@@ -86,11 +88,14 @@ void connectToWiFi()
 }
 
 void motorForward(int speed){
-
+    digitalWrite(MOTOR_LEFT, HIGH);
+    digitalWrite(MOTOR_RIGHT, HIGH);
 }
 
 void motorStop(){
   //
+    digitalWrite(MOTOR_LEFT, LOW);
+    digitalWrite(MOTOR_RIGHT, LOW); 
 }
 
 

@@ -13,3 +13,5 @@
 #define STATUS_LED 13
 
 // Motor pins
+#define MOTOR_LEFT 11
+#define MOTOR_RIGHT 12
