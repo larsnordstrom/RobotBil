@@ -20,3 +20,5 @@
 #define SOFTSERIAL_BAUDRATE 9600
 #define SERVER_PORT 8080
 // Motor pins
+#define MOTOR_LEFT 11
+#define MOTOR_RIGHT 12
