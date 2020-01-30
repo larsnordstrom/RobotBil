@@ -13,11 +13,85 @@
             padding: 0;
             background-color: #ffff;
         }
+
+        nav {
+            Width: 100%;
+            height: 80px;
+            background-color: #fff
+        }
+
+        nav p {
+            font-family: arial;
+            color: #222;
+            font-size: 24px;
+            line-height: 55px;
+            float: left;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            float: left;
+        }
+
+        nav ul li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            font-family: arial;
+            color: #222;
+            font-size: 14px;
+            padding: 24px 14px;
+            text-decoration: none;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 10px;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 180px;
+            border-radius: 4px;
+        }
+
+        nav ul li ul li a {
+            padding: 12px 14px;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: gray;
+        }
     </style>
 </head>
 
 <body>
     <!-- Bilens hemsida, skriv ingen html utanför body taggarna  -->
+
+    <!-- KrunkerKnappen -->
+    <nav>
+        <p></p>
+        <ul>
+            <li><a href="#">Admin meny</a>
+                <ul>
+                    <li><a href="#">Test1</a>
+                    <li><a href="#">Test2</a>
+                    <li><a href="#">Test3</a>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
     <button class="gameBtn" id="btnUp">Up</button>
     <button class="gameBtn" id="btnDown">Down</button>
     <button class="gameBtn" id="btnLeft">Left</button>
