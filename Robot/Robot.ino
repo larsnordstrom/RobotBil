@@ -13,11 +13,16 @@
  * Lägg till funktioner och namnge dom logiskt.
  */
 SoftwareSerial Serial1(SOFTSERIAL_RX, SOFTSERIAL_TX);
+
 void initPins();
 void blinkStatusLed(int del);
 void connectToWiFi(void);
 void motorForward(int speed);
 void motorStop(void);
+void motorLeft(int speed);
+void motorRight(int speed);
+
+
 WiFiEspServer server (SERVER_PORT);
  int status = WL_IDLE_STATUS;
 
@@ -79,7 +84,7 @@ void loop()
         }
       }
     }
-
+  
     delay(10);
 
     client.stop();
@@ -163,5 +168,12 @@ void motorStop(){
     digitalWrite(MOTOR_RIGHT, LOW); 
 }
 
+void motorLeft(int speed){
+    digitalWrite(MOTOR_LEFT, HIGH);
+    digitalWrite(MOTOR_RIGHT, LOW);
+}
 
-
+void motorRight(int speed){
+    digitalWrite(MOTOR_LEFT, LOW);
+    digitalWrite(MOTOR_RIGHT, HIGH);
+}
