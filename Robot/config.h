@@ -22,3 +22,7 @@
 // Motor pins
 #define MOTOR_LEFT 11
 #define MOTOR_RIGHT 12
+
+// Dessa pins behöver ändras till lämplig ledig pin som har PWM.
+#define A_MOTOR_PWM 0
+#define B_MOTOR_PWM 0
