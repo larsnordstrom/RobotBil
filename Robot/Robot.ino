@@ -21,7 +21,7 @@ void motorForward(int speed);
 void motorStop(void);
 void motorLeft(int speed);
 void motorRight(int speed);
-
+void setSpeed(int currentSpeed, int requestedSpeed);
 
 WiFiEspServer server (SERVER_PORT);
  int status = WL_IDLE_STATUS;
@@ -176,4 +176,27 @@ void motorLeft(int speed){
 void motorRight(int speed){
     digitalWrite(MOTOR_LEFT, LOW);
     digitalWrite(MOTOR_RIGHT, HIGH);
+}
+
+/**
+ *
+ **/
+void setSpeed(int currentSpeed, int requestedSpeed)
+{
+  // Current speed is more than requested speed, lower speed
+  while (currentSpeed > requestedSpeed)
+  {
+    currentSpeed--;
+    // FIX : Set the speed for the motors
+    analogWrite(A_MOTOR_PWM, currentSpeed);
+    analogWrite(B_MOTOR_PWM, currentSpeed);
+  }
+  // Current speed is less than requested speed, increase speed
+  while (currentSpeed < requestedSpeed)
+  {
+    currentSpeed++;
+    // FIX : Set the speed for the motors
+    analogWrite(A_MOTOR_PWM, currentSpeed);
+    analogWrite(B_MOTOR_PWM, currentSpeed);
+  }
 }
